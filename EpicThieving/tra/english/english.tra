@@ -1,0 +1,58 @@
+@1=~Epic Thieving~
+@1001=~Lock Pick Succeeded~
+@1101=~The lock on this door is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
+@1102=~The lock on this gate is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
+@1103=~The lock on this portcullis is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
+@1104=~The lock on this grate is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
+@1111=~The lock on this door is extremely complex, and is warded against simple spells, though there should be a key to open it. A truly skilled thief may be able to pick the lock without the key.~
+@1112=~The lock on this gate is extremely complex, and is warded against simple spells, though there should be a key to open it. A truly skilled thief may be able to pick the lock without the key.~
+@1113=~The lock on this portcullis is extremely complex, and is warded against simple spells, though there should be a key to open it. A truly skilled thief may be able to pick the lock without the key.~
+@1114=~The lock on this grate is extremely complex, and is warded against simple spells, though there should be a key to open it. A truly skilled thief may be able to pick the lock without the key.~
+@1131=~The lock on this door is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and open the door.~
+@1132=~The lock on this gate is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and open the gate.~
+@1133=~The lock on this portcullis is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and open it.~
+@1141=~The lock on this door is mind-bendingly complex, and is warded against even the strongest magics, though there should be a key to open it. However, a thief with absolutely fantastic lockingpicking skills may be able to work around the magics and open the door without the key.~
+@1151=~The lock on this door is mind-bendingly complex, and is warded against even the strongest magics. It is meant to be opened only by a bearer of the Symbol of Amaunator. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and open the door without the symbol.~
+@1152=~This 'door' is really a mass of living shadow. Strangely enough, on one side of it there is a spot that is twisted as to resemble a lock, one which is like no other you have seen before. It is unlikely that a simple spell could unlock it, though a truly skilled thief may be able to unlock it.~
+@1153=~The lock on this door is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though. In addition, the floor has an odd-shaped recess in it. It looks as if a statuette or figurine could fit within.~
+@1154=~The lock on Aran's personal safe is impossibly complex, and no spell can come close to unlocking it. The Shadowmaster's safe is legendary among Shadow Thieves. Any Shadow Thief who can open it is welcome to its contents, but none except the Shadowmaster have been able to. In fact, it is said that even Mask himself would have a slight amount of difficulty picking the lock. Only a thief with positively epic lockpicking skills can unlock this safe.~
+@1155=~The lock on Mae'Var's strongbox is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and unlock it.~
+@1156=~The locks on these little safes are extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the locks, though.~
+@1157=~The lock on this door is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though. In addition, the door has an inscription on it: But by the Tooth of Sekolah, none shall pass.~
+@1201=~The lock on this chest is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
+@1202=~The lock on this drawer is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
+@1207=~The lock on this safe is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
+@1211=~The lock on this chest is extremely complex, and is warded against simple spells, though there should be a key to open it. A truly skilled thief may be able to pick the lock without the key.~
+@1237=~The lock on this safe is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and unlock it.~
+@2001=~The mechanism that operates this does not have a conventional lock and is warded against all spells.~
+@10001=~Alignment shifted towards Good and greatly towards Lawful until curse is removed~
+@20001=~Ring of Backstabbing~
+@20002=~A ring is a small band of precious metal that is used as jewelry. Some rare rings have had enchantments placed upon them that confer various magical abilities. These rings are highly sought after, especially by those of the adventuring profession.
+
+STATISTICS:
+
+Equipped abilities:
+- Wearer's backstab multiplier is increased by 1
+
+Weight: 0~
+@20003=~Bracers of Defense AC 1~
+@20004=~Bracers are thick bands of metal or leather that are strapped, belted, or tied to a character's forearm. Generally, the magic that is instilled in bracers is good only during combat, since most bracers help protect the wearer from injury or improve their chances to strike an opponent. Exceptions do exist, though such specialized items are rare at best.
+
+STATISTICS:
+
+Equipped abilities:
+– Armor Class: 1
+
+Weight: 2~
+@28001=~Improved Knock~
+@28002=~Improved Knock
+(Alteration)
+
+Level: 8
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 8
+Area of Effect: Locked door or chest
+Saving Throw: None
+
+The Improved Knock spell is similar to the level 2 spell Knock, except more powerful. It opens locked doors and containers, including ones that have been magically sealed. Some locks that cannot be unlocked by Knock can be unlocked by Improved Knock, though other locks are beyond the power of even this spell.~
