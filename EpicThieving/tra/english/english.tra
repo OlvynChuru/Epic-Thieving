@@ -26,6 +26,43 @@
 @1237=~The lock on this safe is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and unlock it.~
 @2001=~The mechanism that operates this does not have a conventional lock and is warded against all spells.~
 @10001=~Alignment shifted towards Good and greatly towards Lawful until curse is removed~
+@19002=~Set Snare
+Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the character's Set Traps skill and can only be triggered by enemies.
+  Set Traps 0-49: Deals 1d8+5 missile damage.
+  Set Traps 50-99: Deals 1d8+5 missile damage, plus 1d8 poison damage.
+  Set Traps 100-149: Deals 2d8+5 missile damage, plus 2d8 poison damage.
+  Set Traps 150-199: Deals 2d8+5 missile damage, plus 3d8 poison damage.
+  Set Traps 200-249: Deals 3d8+5 missile damage, plus 4d8 poison damage.
+  Set Traps 250 and above: Deals 3d8+5 missile damage, plus 5d8 poison damage.~
+@19004=~Set Special Snare
+Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the character's Set Traps skill and can only be triggered by enemies.
+  Set Traps 0-49: Deals 2d8+5 missile damage, and slows the target for 3 rounds if a Save vs. Wands with a -1 penalty is failed.
+  Set Traps 50-99: Deals 3d8+5 missile damage, and slows the target for 4 rounds if a Save vs. Wands with a -2 penalty is failed.
+  Set Traps 100-149: Deals 4d8+5 missile damage, and holds the target for 4 rounds if a Save vs. Wands with a -2 penalty is failed.
+  Set Traps 150-199: Deals 5d8+5 missile damage, and holds the target for 5 rounds if a Save vs. Wands with a -3 penalty is failed.
+  Set Traps 200-249: Deals 6d8+5 missile damage, holds the target for 5 rounds if a Save vs. Wands with a -3 penalty is failed, and pulls the target towards the trap.
+  Set Traps 250 and above: Deals 8d8+5 missile damage, holds the target for 6 rounds if a Save vs. Wands with a -4 penalty is failed, and pulls the target towards the trap.~
+@19005=~Set Death Trap~
+@19006=~Set Death Trap
+With this ability, the character can set a deadly trap that can instantly kill a creature. The trap grows more powerful with the character's Set Traps skill and can only be triggered by enemies.
+  Set Traps 0-149: Deals 4d8+5 missile damage and instantly kills the target if it fails a Save vs. Death with a +1 bonus.
+  Set Traps 150-199: Deals 6d8+5 missile damage and instantly kills the target if it fails a Save vs. Death.
+  Set Traps 200-249: Deals 8d8+5 missile damage and instantly kills the target if it fails a Save vs. Death with a -1 penalty.
+  Set Traps 250 and above: Deals 10d8+5 missile damage and instantly kills the target if it fails a Save vs. Death with a -2 penalty.~
+@19008=~Set Exploding Trap
+With this ability, the character can set a deadly trap that explodes when an enemy comes near. The trap grows more powerful with the character's Set Traps skill and can only be triggered by enemies.
+  Set Traps 0-149: Deals 10d6 fire damage to all enemies within 15 feet (Save vs. Breath for half) and knocks them back.
+  Set Traps 150-199: Deals 12d6 fire damage to all enemies within 20 feet (Save vs. Breath at -1 for half) and knocks them back.
+  Set Traps 200-249: Deals 14d6 fire damage to all enemies within 25 feet (Save vs. Breath at -2 for half) and knocks them back.
+  Set Traps 250 and above: Deals 16d6 fire damage to all enemies within 30 feet (Save vs. Breath at -3 for half) and knocks them back.
+
+Although the radius of the explosion grows as the trap gets more powerful, the proximity needed to trigger the trap does not change.~
+@19010=~Set Time Trap
+With this ability, the character can set a trap that stops time when an enemy comes near. The trap grows more powerful with the character's Set Traps skill and can only be triggered by enemies.
+  Set Traps 0-149: Stops time for 1.5 rounds.
+  Set Traps 150-199: Stops time for 2 rounds.
+  Set Traps 200-249: Stops time for 2.5 rounds.
+  Set Traps 250 and above: Stops time for 3 rounds.~
 @20001=~Ring of Backstabbing~
 @20002=~A ring is a small band of precious metal that is used as jewelry. Some rare rings have had enchantments placed upon them that confer various magical abilities. These rings are highly sought after, especially by those of the adventuring profession.
 

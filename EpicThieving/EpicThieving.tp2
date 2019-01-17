@@ -863,6 +863,7 @@ OUTER_PATCH alltheconstants BEGIN
 	protectionfromtimestop=310
 	rest=316
 	haste2=317
+	protectionfromspell2=318
 	removeeffectsbyresource=321
 	modifyturnundeadlevel=323
 	protectionfromspell3=324
@@ -1256,6 +1257,20 @@ BEGIN
   END
 END
 
+DEFINE_ACTION_FUNCTION ADD_SPLPROT_CONDITION
+	STR_VAR
+		splprot_stat=~*~
+		splprot_value=~*~
+		splprot_relation=~*~
+	RET
+		splprot_slot
+BEGIN
+	COPY_EXISTING ~splprot.2da~ ~override~
+		COUNT_2DA_ROWS 4 numrows
+		INSERT_2DA_ROW numrows 4 ~%numrows%        %splprot_stat%         %splprot_value%        %splprot_relation%~
+		splprot_slot=numrows
+END
+
 DEFINE_ACTION_FUNCTION ~GET_UNIQUE_SPELL_NAME~
 	STR_VAR
 		prefix=~DEFA~
@@ -1500,7 +1515,7 @@ COPY_EXISTING ~25spell.sto~ ~override~ ~25spell2.sto~ ~override~
 		WRITE_BYTE pickpockets 240
 
 	COPY_EXISTING ~ar0400.are~ ~override~
-		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1131) STR_VAR object_name=~DoorSphere~ new_script=~melkd225~ END
+		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1101) STR_VAR object_name=~DoorSphere~ new_script=~melkd195~ END
 
 	COPY_EXISTING ~ar0406.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1111) STR_VAR object_name=~Door08~ new_script=~melkd125~ END
@@ -2090,6 +2105,56 @@ STR_VAR ab_RT_Name=~ME_Incendiary_Trap_6~ ab_RT_Rbcs=~gt016~ END
 
 END
 END
+
+
+BEGIN ~Epic Trap Setting~
+
+//LAF ADD_SPLPROT_CONDITION STR_VAR splprot_stat=~137~ splprot_value=~-1~ splprot_relation=~4~ RET splprot_settrapsgreaterthanorequalto=splprot_slot END
+LAF ADD_SPLPROT_CONDITION STR_VAR splprot_stat=~137~ splprot_value=~-1~ splprot_relation=~2~ RET splprot_settrapslessthan=splprot_slot END
+
+COPY ~EpicThieving/EpicTrapSetting~ ~override~
+
+ADD_PROJECTILE ~override/meste03.pro~ //Exploding Trap 1
+ADD_PROJECTILE ~override/meste04.pro~ //Exploding Trap 2
+ADD_PROJECTILE ~override/meste05.pro~ //Exploding Trap 3
+ADD_PROJECTILE ~override/meste06.pro~ //Exploding Trap 4
+ADD_PROJECTILE ~override/mestt03.pro~ //Time Trap
+
+COPY_EXISTING ~mecl412.spl~ ~override/spcl412.spl~ ~mecl414.spl~ ~override/spcl414.spl~ ~mecl910.spl~ ~override/spcl910.spl~ ~mecl911.spl~ ~override/spcl911.spl~ ~mecl912.spl~ ~override/spcl912.spl~
+	LPF ALTER_EFFECT INT_VAR check_headers=1 check_globals=0 match_opcode=applyeffectslist match_parameter2=500 parameter2=splprot_settrapslessthan END
+	LPF ALTER_EFFECT INT_VAR check_headers=1 check_globals=0 match_opcode=protectionfromspell2 match_parameter2=500 parameter2=splprot_settrapslessthan END
+
+COPY_EXISTING ~spcl412.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @19002
+
+COPY_EXISTING ~spcl414.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @19004
+
+COPY_EXISTING ~spcl910.spl~ ~override~
+	SAY NAME1 @19005
+	SAY UNIDENTIFIED_DESC @19006
+
+COPY_EXISTING ~spcl911.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @19008
+
+COPY_EXISTING ~spcl912.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @19010
+
+COPY_EXISTING ~meste03.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile=meste03 END
+
+COPY_EXISTING ~meste04.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile=meste04 END
+
+COPY_EXISTING ~meste05.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile=meste05 END
+
+COPY_EXISTING ~meste06.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile=meste06 END
+
+COPY_EXISTING_REGEXP ~mestt0[3456].spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile=mestt03 END
+
 
 BEGIN ~Prevent multiple Potions of Perception or Master Thievery from stacking~
 
