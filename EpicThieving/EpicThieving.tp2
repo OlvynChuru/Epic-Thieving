@@ -2156,6 +2156,124 @@ COPY_EXISTING_REGEXP ~mestt0[3456].spl~ ~override~
 	LPF ALTER_SPELL_HEADER INT_VAR projectile=mestt03 END
 
 
+BEGIN ~Epic Pickpocketing~
+
+COPY ~EpicThieving/EpicPickpocketing~ ~override~
+
+COPY_EXISTING ~metr009.spl~ ~override~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode=displaystring match_parameter1=10002 parameter1=RESOLVE_STR_REF(@10002) END
+
+COPY_EXISTING ~highhedg.sto~ ~override~ ~highhed2.sto~ ~override~ ~highhed3.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 105
+	IF_EXISTS
+
+COPY_EXISTING ~sto0703.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 115
+	IF_EXISTS
+
+COPY_EXISTING ~taerum.sto~ ~override~ ~taeru2.sto~ ~override~ ~taeru3.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 120
+	IF_EXISTS
+
+COPY_EXISTING ~thalan.cre~ ~override~
+	LPF ADD_CRE_SCRIPT STR_VAR script=~MESTEALF~ END
+	IF_EXISTS
+
+COPY_EXISTING ~halbaz.cre~ ~override~ ~bdhalbaz.cre~ ~override~
+	LPF ADD_CRE_SCRIPT STR_VAR script=~MESTEALH~ END
+	IF_EXISTS
+
+COPY_EXISTING ~bdsorcsc.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 160
+	IF_EXISTS
+
+COPY_EXISTING ~ribald.sto~ ~override~ ~ribald2.sto~ ~override~ ~ribald3.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 180
+	IF_EXISTS
+
+COPY_EXISTING ~mesteagu.d~ ~override/mesteagu.dlg~
+	COMPILE_D_TO_DLG
+
+/*
+COPY_EXISTING ~bandoth.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 130
+	IF_EXISTS
+
+COPY_EXISTING ~de_lib.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 120
+	IF_EXISTS
+
+COPY_EXISTING ~emmeric.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 70
+	IF_EXISTS
+
+COPY_EXISTING ~hobart.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 125
+	IF_EXISTS
+
+COPY_EXISTING ~kieran.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 115
+	IF_EXISTS
+
+COPY_EXISTING ~kugerth.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 50
+	IF_EXISTS
+
+COPY_EXISTING ~ldd_dl1.sto~ ~override~ ~ldd_dl2.sto~ ~override~ ~ldd_dl3.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 100
+	IF_EXISTS
+
+COPY_EXISTING ~ldd_nym.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 135
+	IF_EXISTS
+
+COPY_EXISTING ~shlehlan.sto~ ~override~
+	READ_LONG 0x10 ulgiash
+	ulgiash|=0x8
+	WRITE_LONG 0x10 ulgiash
+	WRITE_SHORT 0x20 80
+	IF_EXISTS
+*/
+
 BEGIN ~Prevent multiple Potions of Perception or Master Thievery from stacking~
 
 	COPY_EXISTING ~potn36.itm~ ~override~
