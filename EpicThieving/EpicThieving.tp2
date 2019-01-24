@@ -1422,9 +1422,9 @@ COPY ~EpicThieving/EpicLocks~ ~override~
 STRING_SET_EVALUATE 23169 @2001
 
 COPY_EXISTING_REGEXP ~melkd[012][0-9][0-9]\.bcs~ ~override~
-	DECOMPILE_BCS_TO_BAF
-	REPLACE 1001 @1001
-	COMPILE_BAF_TO_BCS
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE 1001 @1001
+	END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~xpbonus.2da~ BEGIN
 	COPY_EXISTING ~xpbonus.2da~ ~override~
@@ -1434,12 +1434,12 @@ ACTION_IF FILE_EXISTS_IN_GAME ~xpbonus.2da~ BEGIN
 		BUT_ONLY_IF_IT_CHANGES
 	
 	COPY_EXISTING_REGEXP ~melkd[012][0-9][0-9]\.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
+		DECOMPILE_AND_PATCH BEGIN
 		PATCH_IF  highestlockxp != 0 BEGIN
 			REPLACE_EVALUATE CASE_INSENSITIVE ~DisplayString(Player\([1-6]\),\([0-9]+\))~ BEGIN END ~DisplayString(Player%MATCH1%,%MATCH2%)
 AddexperienceParty(%highestlockxp%)~
 		END
-		COMPILE_BAF_TO_BCS
+		END
 END
 
 LAF GET_UNIQUE_SPELL_NAME STR_VAR prefix=~spwi8~ RET mewi8kn=filename END
@@ -1453,9 +1453,9 @@ COPY_EXISTING ~mewi8kn.itm~ ~override~
 	SAY IDENTIFIED_DESC @28002
 
 COPY_EXISTING_REGEXP ~melkd[01][0-9][0-9]\.bcs~ ~override~
-	DECOMPILE_BCS_TO_BAF
-	REPLACE_TEXTUALLY CASE_INSENSITIVE ~mewi8kn~ ~%mewi8kn%~
-	COMPILE_BAF_TO_BCS
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY CASE_INSENSITIVE ~mewi8kn~ ~%mewi8kn%~
+	END
 
 COPY_EXISTING ~meitlk01.itm~ ~override~
 	SAY NAME2 @20001
@@ -1535,19 +1535,19 @@ COPY_EXISTING ~25spell.sto~ ~override~ ~25spell2.sto~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1101) STR_VAR object_name=~Door25~ new_script=~melkd105~ END
 
 	COPY_EXISTING ~hendak.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~!PartyHasItem(\"MISC4Z\")~ ~!PartyHasItem("MISC4Z")
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~!PartyHasItem(\"MISC4Z\")~ ~!PartyHasItem("MISC4Z")
 OpenState("DOOR09",FALSE)~
-		COMPILE_BAF_TO_BCS
+		END
 
 	COPY_EXISTING ~hendak.dlg~ ~override~
-		DECOMPILE_DLG_TO_D
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~!PartyHasItem(\"MISC4Z\")~ ~!PartyHasItem("MISC4Z")
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~!PartyHasItem(\"MISC4Z\")~ ~!PartyHasItem("MISC4Z")
 OpenState("DOOR09",FALSE)~
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~[^!]PartyHasItem(\"MISC4Z\")~ ~OR(2)
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~[^!]PartyHasItem(\"MISC4Z\")~ ~OR(2)
 	PartyHasItem("MISC4Z")
 	OpenState("DOOR09",TRUE)~
-		COMPILE_D_TO_DLG
+		END
 
 	COPY_EXISTING ~ar0411.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1101) STR_VAR object_name=~Door Rune 3~ new_script=~melkd160~ END
@@ -1584,9 +1584,9 @@ OpenState("DOOR09",FALSE)~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1111) STR_VAR object_name=~Door29~ new_script=~melkd115~ END
 
 	COPY_EXISTING ~garkid01.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~PartyHasItem(\"KEY09\")~ ~~
-		COMPILE_BAF_TO_BCS
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~PartyHasItem(\"KEY09\")~ ~~
+		END
 
 	COPY_EXISTING ~ar1302.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1111) STR_VAR object_name=~DOOR10~ new_script=~melkd105~ END
@@ -1718,10 +1718,10 @@ ACTION_IF GAME_IS ~iwd how totlm iwdee~ BEGIN
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1101) STR_VAR object_name=~AR4005Door12~ new_script=~melkd105~ END
 
 	COPY_EXISTING ~d5yxudor.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~DisplayString(Player~ ~SetGlobal("D5YXUDOR_inactive","LOCALS",1)
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~DisplayString(Player~ ~SetGlobal("D5YXUDOR_inactive","LOCALS",1)
 DisplayString(Player~
-		COMPILE_BAF_TO_BCS
+		END
 
 END
 
@@ -1855,18 +1855,18 @@ ACTION_IF GAME_IS ~bg2 tob bg2ee eet bgt~ BEGIN
 	EXTEND_TOP ~spletttp.bcs~ ~override/medisarm.bcs~
 
 	COPY_EXISTING ~spletttp.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~IsOverMe(\[ANYONE\])~ ~IsActive(Myself)
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~IsOverMe(\[ANYONE\])~ ~IsActive(Myself)
 IsOverMe([ANYONE])~
-		COMPILE_BAF_TO_BCS
+		END
 
 	OUTER_FOR (i = 517; i <= 521; ++i) BEGIN
 		EXTEND_TOP ~tele0%i%.bcs~ ~override/medisarm.bcs~
 		COPY_EXISTING ~tele0%i%.bcs~ ~override~
-			DECOMPILE_BCS_TO_BAF
-			REPLACE_TEXTUALLY CASE_INSENSITIVE ~IsOverMe(\[ANYONE\])~ ~IsActive(Myself)
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY CASE_INSENSITIVE ~IsOverMe(\[ANYONE\])~ ~IsActive(Myself)
 IsOverMe([ANYONE])~
-			COMPILE_BAF_TO_BCS
+			END
 	END
 
 	COPY_EXISTING ~ar1500.are~ ~override~
@@ -1897,26 +1897,26 @@ ACTION_IF GAME_IS ~tob bg2ee eet bgt~ BEGIN
 
 	EXTEND_TOP ~trglobe1.bcs~ ~override/metrglo1.bcs~
 	COPY_EXISTING ~trglobe1.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~Range(~ ~Global("ME_Globe_Disarmed_1","AR3016",0)
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~Range(~ ~Global("ME_Globe_Disarmed_1","AR3016",0)
 Range(~
-		COMPILE_BAF_TO_BCS
+		END
 
 	EXTEND_TOP ~trglobe2.bcs~ ~override/metrglo2.bcs~
 	COPY_EXISTING ~trglobe2.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~Range(~ ~Global("ME_Globe_Disarmed_2","AR3016",0)
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~Range(~ ~Global("ME_Globe_Disarmed_2","AR3016",0)
 Range(~
-		COMPILE_BAF_TO_BCS
+		END
 
 	COPY_EXISTING ~ar3016.bcs~ ~override~
-		DECOMPILE_BCS_TO_BAF
-		REPLACE_TEXTUALLY CASE_INSENSITIVE ~!GlobalTimerNotExpired(\"LightningGlobeTimer3\",\"AR3016\")~ ~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~!GlobalTimerNotExpired(\"LightningGlobeTimer3\",\"AR3016\")~ ~
 OR(2)
 	Global("ME_Globe_Disarmed_1","AR3016",0)
 	Global("ME_Globe_Disarmed_2","AR3016",0)
 !GlobalTimerNotExpired("LightningGlobeTimer3","AR3016")~
-		COMPILE_BAF_TO_BCS
+		END
 
 <<<<<<<< .../script.baf
 
@@ -2216,8 +2216,45 @@ COPY_EXISTING ~ribald.sto~ ~override~ ~ribald2.sto~ ~override~ ~ribald3.sto~ ~ov
 	WRITE_SHORT 0x20 180
 	IF_EXISTS
 
-COPY_EXISTING ~mesteagu.d~ ~override/mesteagu.dlg~
-	COMPILE_D_TO_DLG
+<<<<<<<< .../script.baf
+
+IF
+	StealFailed([ANYONE])
+	Global("ME_Caught_Stealing","AR0702",0)
+THEN
+	RESPONSE #100
+		SetGlobal("ME_Caught_Stealing","AR0702",1)
+		Enemy()
+END
+
+>>>>>>>>
+
+EXTEND_TOP ~ribald.bcs~ ~.../script.baf~ EVAL
+
+COPY_EXISTING ~stealgrd.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY CASE_INSENSITIVE ~CombatCounter(0)~ ~!GlobalTimerNotExpired("ME_Warn_You_Thieves","LOCALS")
+CombatCounter(0)~
+		REPLACE_EVALUATE CASE_INSENSITIVE ~Wait(\([0-9]+\))~ BEGIN END ~SetGlobalTimer("ME_Warn_You_Thieves","LOCALS",%MATCH1%)~
+	END
+	IF_EXISTS
+
+<<<<<<<< .../script.baf
+
+IF
+	See([PC])
+	Global("ME_Caught_Stealing","AR0702",1)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		StartDialogOverride("MESTEAGU",LastSeenBy(Myself))
+END
+
+>>>>>>>>
+
+EXTEND_TOP ~stealgrd.bcs~ ~.../script.baf~ EVAL
+
+COMPILE ~override/mesteagu.d~
 
 /*
 COPY_EXISTING ~bandoth.sto~ ~override~
