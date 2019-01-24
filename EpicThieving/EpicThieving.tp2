@@ -2,6 +2,16 @@ BACKUP ~EpicThieving/backup~
 AUTHOR ~ms98862n@pace.edu~
 
 ALWAYS
+ACTION_IF GAME_IS ~eet~ BEGIN
+	INCLUDE ~EpicThieving/lib/eet_cpmvars.tpa~
+END ELSE ACTION_IF GAME_IS ~bgt~ BEGIN
+	INCLUDE ~EpicThieving/lib/g3_bgt_cpmvars.tpa~
+END ELSE ACTION_IF GAME_IS ~tutu tutu_totsc~ BEGIN
+	INCLUDE ~EpicThieving/lib/g3_tutu_cpmvars.tpa~
+END ELSE BEGIN
+	INCLUDE ~EpicThieving/lib/liam_bgee_vars.tpa~
+END
+
 OUTER_PATCH alltheconstants BEGIN
 	none=0
 	noprojectile=1
@@ -1455,27 +1465,27 @@ COPY_EXISTING ~meitlk02.itm~ ~override~
 	SAY NAME2 @20003
 	SAY IDENTIFIED_DESC @20004
 
-ACTION_IF GAME_IS ~bg1 totsc tutu tutu_totsc bgee~ BEGIN
+ACTION_IF GAME_IS ~bg1 totsc tutu tutu_totsc bgee eet bgt~ BEGIN
 
-	COPY_EXISTING ~ar0111.are~ ~override~
+	COPY_EXISTING ~%NBaldursGate_DucalPalace_Cellar%.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=1 check_doors=0 lockpick_string=RESOLVE_STR_REF(@1201) STR_VAR object_name=~Container 1~ new_script=~melkd120~ END
 
-ACTION_IF GAME_IS ~totsc tutu_totsc bgee~ BEGIN
+ACTION_IF GAME_IS ~totsc tutu_totsc bgee eet bgt~ BEGIN
 
-	COPY_EXISTING ~ar0511.are~ ~override~
+	COPY_EXISTING ~%DurlagsTower_D1%.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=1 check_doors=0 lockpick_string=RESOLVE_STR_REF(@1202) STR_VAR object_name=~Container 21~ new_script=~melkd115~ END
 
-	COPY_EXISTING ~ar0512.are~ ~override~
+	COPY_EXISTING ~%DurlagsTower_D2%.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1101) STR_VAR check_script=~ocdoor~ new_script=~melkd130~ END
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1101) STR_VAR object_name=~Door15~ new_script=~melkd145~ END
 
-	COPY_EXISTING ~ar0514.are~ ~override~
+	COPY_EXISTING ~%DurlagsTower_D4%.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1101) STR_VAR object_name=~Door09~ new_script=~melkd195~ END
 
 END
 END
 
-ACTION_IF GAME_IS ~bg2 tob bg2ee~ BEGIN
+ACTION_IF GAME_IS ~bg2 tob bg2ee eet bgt~ BEGIN
 
 COPY_EXISTING ~maevar.cre~ ~override~
 	ADD_CRE_ITEM ~MEWI8KN~ #1 #0 #0 ~IDENTIFIED~ ~INV2~
@@ -1635,7 +1645,7 @@ OpenState("DOOR09",FALSE)~
 	COPY_EXISTING ~ar2901.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=1 check_doors=0 lockpick_string=RESOLVE_STR_REF(@1211) STR_VAR object_name=~Container 1~ new_script=~melkd140~ END
 
-ACTION_IF GAME_IS ~tob bg2ee~ BEGIN
+ACTION_IF GAME_IS ~tob bg2ee eet bgt~ BEGIN
 
 	COPY_EXISTING ~ar3001.are~ ~override~
 		LPF ADD_EPIC_LOCK INT_VAR check_containers=0 check_doors=1 lockpick_string=RESOLVE_STR_REF(@1111) STR_VAR object_name=~Door01~ new_script=~melkd160~ END
@@ -1727,9 +1737,9 @@ ADD_PROJECTILE ~override/meconeco.pro~ //Huge Cone of Cold
 	COPY_EXISTING ~metr005.spl~ ~override~
 		WRITE_SHORT 0x98 meconeco
 
-ACTION_IF GAME_IS ~bg1 totsc tutu tutu_totsc bgee~ BEGIN
+ACTION_IF GAME_IS ~bg1 totsc tutu tutu_totsc bgee eet bgt~ BEGIN
 
-	COPY_EXISTING ~ar0125.are~ ~override~
+	COPY_EXISTING ~%Undercity_TempleofBhaal%.are~ ~override~
 		LPF ALTER_AREA_REGION INT_VAR trap_detect=80 trap_remove=105 STR_VAR region_name=~Trap 1~ END
 		LPF ALTER_AREA_REGION INT_VAR trap_detect=80 trap_remove=105 STR_VAR region_name=~Trap 2~ END
 		LPF ALTER_AREA_REGION INT_VAR trap_detect=80 trap_remove=105 STR_VAR region_name=~Trap 3~ END
@@ -1749,9 +1759,9 @@ ACTION_IF GAME_IS ~bg1 totsc tutu tutu_totsc bgee~ BEGIN
 		LPF ALTER_AREA_REGION INT_VAR trap_remove=110 STR_VAR region_name=~Trap 17~ END
 		LPF ALTER_AREA_REGION INT_VAR trap_detect=80 trap_remove=105 STR_VAR region_name=~Trap 19~ END
 
-ACTION_IF GAME_IS ~totsc tutu_totsc bgee~ BEGIN
+ACTION_IF GAME_IS ~totsc tutu_totsc bgee eet bgt~ BEGIN
 
-	COPY_EXISTING ~ar0513.are~ ~override~
+	COPY_EXISTING ~%DurlagsTower_D3%.are~ ~override~
 		READ_LONG 0x5c triggeroffset
 		READ_SHORT 0x5a triggernumber
 		FOR (i = 0; i < triggernumber; ++i) BEGIN
@@ -1789,7 +1799,7 @@ ab_RT_Vx_X_10=3165 ab_RT_Vx_Y_10=1212
 ab_RT_Vx_X_11=3153 ab_RT_Vx_Y_11=1202
 STR_VAR ab_RT_Name=~Firetrap~ ab_RT_Rbcs=~mefiretr~ END
 
-	COPY_EXISTING ~ar0514.are~ ~override~
+	COPY_EXISTING ~%DurlagsTower_D4%.are~ ~override~
 		LPF ALTER_AREA_REGION INT_VAR trap_detect=80 trap_remove=150 STR_VAR region_name=~deathtrap1~ END
 		LPF ALTER_AREA_REGION INT_VAR trap_detect=80 trap_remove=150 STR_VAR region_name=~deathtrap2~ END
 		LPF ALTER_AREA_REGION INT_VAR trap_detect=80 trap_remove=150 STR_VAR region_name=~deathtrap3~ END
@@ -1797,7 +1807,7 @@ STR_VAR ab_RT_Name=~Firetrap~ ab_RT_Rbcs=~mefiretr~ END
 END
 END
 
-ACTION_IF GAME_IS ~bg2 tob bg2ee~ BEGIN
+ACTION_IF GAME_IS ~bg2 tob bg2ee eet bgt~ BEGIN
 
 	COPY_EXISTING ~ar0204.are~ ~override~
 		LPF ALTER_AREA_CONTAINER INT_VAR trap_detect=110 trap_remove=140 STR_VAR container_name=~Container 1~ container_script=~metr002~ END
@@ -1869,7 +1879,7 @@ IsOverMe([ANYONE])~
 		LPF ALTER_AREA_REGION INT_VAR trap_remove=115 STR_VAR region_name=~crTrap1~ END
 		LPF ALTER_AREA_REGION INT_VAR trap_remove=115 STR_VAR region_name=~crtrap2~ END
 
-ACTION_IF GAME_IS ~tob bg2ee~ BEGIN
+ACTION_IF GAME_IS ~tob bg2ee eet bgt~ BEGIN
 
 	COPY_EXISTING ~ar3014.are~ ~override~
 		LPF ALTER_AREA_REGION INT_VAR flag_resets=1 trap_detect=90 trap_remove=140 STR_VAR region_name=~Trigger Point 4~ END
