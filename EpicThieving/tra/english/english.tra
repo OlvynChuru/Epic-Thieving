@@ -28,6 +28,7 @@
 @6001=~I caught you, thief! Unlike most soldiers in this city, I accept no bribes! You will be punished now!~
 @10001=~Alignment shifted towards Good and greatly towards Lawful until curse is removed~
 @10002=~Pick Pockets skill decreased significantly until curse is removed~
+@10003=~Illusion Dispelled~
 @19002=~Set Snare
 Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the character's Set Traps skill and can only be triggered by enemies.
   Set Traps 0-49: Deals 1d8+5 missile damage.

@@ -1408,6 +1408,32 @@ BEGIN
 
 END
 
+DEFINE_PATCH_FUNCTION ~GET_2DA_ROW~
+	INT_VAR
+		numcolumns=0
+		match_column=0
+		found_it=0
+	STR_VAR
+		match=~DEFA~
+	RET
+		numcols
+		matched
+BEGIN
+		COUNT_2DA_ROWS numcolumns numrows
+		FOR (i = 0; i < numrows; ++i) BEGIN
+			READ_2DA_ENTRY i match_column numcolumns string_to_match
+			PATCH_IF (~%string_to_match%~ STRING_EQUAL_CASE ~%match%~) BEGIN
+				matched = i
+				found_it = 1
+				i = numrows
+			END
+		END
+		numcols = numcolumns
+		PATCH_IF (found_it = 0) BEGIN
+			PATCH_FAIL ~GET_2DA_ROW: Could not find a row that contains %match% in column %match_column%.~
+		END
+END
+
 END
 
 LANGUAGE
@@ -2321,10 +2347,48 @@ COPY_EXISTING ~shlehlan.sto~ ~override~
 	IF_EXISTS
 */
 
+BEGIN ~Epic Detect Illusions~
+
+COPY ~EpicThieving/EpicDetectIllusions~ ~override~
+
+LAF ADD_SPLPROT_CONDITION STR_VAR splprot_stat=~136~ splprot_value=~-1~ splprot_relation=~1~ RET splprot_detectillusionsequalto=splprot_slot END
+LAF ADD_SPLPROT_CONDITION STR_VAR splprot_stat=~136~ splprot_value=~-1~ splprot_relation=~4~ RET splprot_detectillusionsgreaterthanorequalto=splprot_slot END
+
+COPY_EXISTING ~medetils.spl~ ~override~
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=applyeffectslist target=1 timing=9 parameter1=100 parameter2=splprot_detectillusionsgreaterthanorequalto STR_VAR resource=~medetin~ END
+	FOR (i = 1; i <= 99; ++i) BEGIN
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=applyeffectslist target=1 timing=9 probability1=(i - 1) parameter1=(100 + i) parameter2=splprot_detectillusionsequalto STR_VAR resource=~medetil~ END
+	END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=applyeffectslist target=1 timing=9 parameter1=200 parameter2=splprot_detectillusionsgreaterthanorequalto STR_VAR resource=~medetil~ END
+
+COPY_EXISTING ~medetilm.spl~ ~override~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode=displaystring match_parameter1=10003 parameter1=RESOLVE_STR_REF(@10003) END
+
+COPY_EXISTING ~clabth01.2da~ ~override~ ~clabmo02.2da~ ~override~ ~clabsh01.2da~ ~override~
+	COUNT_2DA_COLS numcolumns_2
+	COUNT_2DA_ROWS numcolumns_2 numrows_2
+	INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABILDETILU    AP_MEDETILU ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+
+COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS 10 numrows
+	FOR (i = 1; i < numrows; ++i) BEGIN
+		READ_2DA_ENTRY i 8 10 class_of_kit
+		PATCH_IF class_of_kit=classthief OR class_of_kit=classshaman BEGIN
+			READ_2DA_ENTRY i 5 10 abilities_of_kit
+			INNER_ACTION BEGIN
+				COPY_EXISTING ~%abilities_of_kit%.2da~ ~override~
+					COUNT_2DA_COLS numcolumns_2
+					COUNT_2DA_ROWS numcolumns_2 numrows_2
+					INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABILDETILU    AP_MEDETILU ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+			END
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
 BEGIN ~Prevent multiple Potions of Perception or Master Thievery from stacking~
 
-	COPY_EXISTING ~potn36.itm~ ~override~
-		LPF ADD_ITEM_EFFECT INT_VAR type=3 opcode=removeeffectsbyresource target=1 timing=9 insert_point=0 STR_VAR resource=~potn36~ END
+COPY_EXISTING ~potn36.itm~ ~override~
+	LPF ADD_ITEM_EFFECT INT_VAR type=3 opcode=removeeffectsbyresource target=1 timing=9 insert_point=0 STR_VAR resource=~potn36~ END
 
-	COPY_EXISTING ~potn39.itm~ ~override~
-		LPF ADD_ITEM_EFFECT INT_VAR type=3 opcode=removeeffectsbyresource target=1 timing=9 insert_point=0 STR_VAR resource=~potn39~ END
+COPY_EXISTING ~potn39.itm~ ~override~
+	LPF ADD_ITEM_EFFECT INT_VAR type=3 opcode=removeeffectsbyresource target=1 timing=9 insert_point=0 STR_VAR resource=~potn39~ END
