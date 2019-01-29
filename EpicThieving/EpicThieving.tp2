@@ -2368,6 +2368,7 @@ COPY_EXISTING ~clabth01.2da~ ~override~ ~clabmo02.2da~ ~override~ ~clabsh01.2da~
 	COUNT_2DA_COLS numcolumns_2
 	COUNT_2DA_ROWS numcolumns_2 numrows_2
 	INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABILDETILU    AP_MEDETILU ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+	IF_EXISTS
 
 COPY_EXISTING ~kitlist.2da~ ~override~
 	COUNT_2DA_ROWS 10 numrows
