@@ -1,4 +1,12 @@
 @1=~Epic Thieving~
+@2=~Epic Locks~
+@3=~Epic Traps~
+@4=~Epic Trap Setting~
+@5=~Epic Pickpocketing~
+@6=~Epic Detect Illusions~
+@7=~Prevent multiple Potions of Perception or Master Thievery from stacking~
+@8=~New Skill: Use Poison~
+@101=~You must install EEex for this skill to function.~
 @1001=~Lock Pick Succeeded~
 @1101=~The lock on this door is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
 @1102=~The lock on this gate is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
@@ -12,23 +20,26 @@
 @1132=~The lock on this gate is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and open the gate.~
 @1133=~The lock on this portcullis is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and open it.~
 @1141=~The lock on this door is mind-bendingly complex, and is warded against even the strongest magics, though there should be a key to open it. However, a thief with absolutely fantastic lockingpicking skills may be able to work around the magics and open the door without the key.~
+@1142=~The lock on this gate is mind-bendingly complex, and is warded against even the strongest magics, though there should be a key to open it. However, a thief with absolutely fantastic lockingpicking skills may be able to work around the magics and open the gate without the key.~
 @1151=~The lock on this door is mind-bendingly complex, and is warded against even the strongest magics. It is meant to be opened only by a bearer of the Symbol of Amaunator. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and open the door without the symbol.~
 @1152=~This 'door' is really a mass of living shadow. Strangely enough, on one side of it there is a spot that is twisted as to resemble a lock, one which is like no other you have seen before. It is unlikely that a simple spell could unlock it, though a truly skilled thief may be able to unlock it.~
 @1153=~The lock on this door is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though. In addition, the floor has an odd-shaped recess in it. It looks as if a statuette or figurine could fit within.~
 @1154=~The lock on Aran's personal safe is impossibly complex, and no spell can come close to unlocking it. The Shadowmaster's safe is legendary among Shadow Thieves. Any Shadow Thief who can open it is welcome to its contents, but none except the Shadowmaster have been able to. In fact, it is said that even Mask himself would have a slight amount of difficulty picking the lock. Only a thief with positively epic lockpicking skills can unlock this safe.~
 @1155=~The lock on Mae'Var's strongbox is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and unlock it.~
-@1156=~The locks on these little safes are extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the locks, though.~
+@1156=~The locks on these little safes are extremely complex, and are warded against simple spells. A truly skilled thief may be able to pick the locks, though.~
 @1157=~The lock on this door is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though. In addition, the door has an inscription on it: But by the Tooth of Sekolah, none shall pass.~
 @1201=~The lock on this chest is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
 @1202=~The lock on this drawer is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
 @1207=~The lock on this safe is extremely complex, and is warded against simple spells. A truly skilled thief may be able to pick the lock, though.~
 @1211=~The lock on this chest is extremely complex, and is warded against simple spells, though there should be a key to open it. A truly skilled thief may be able to pick the lock without the key.~
 @1237=~The lock on this safe is mind-bendingly complex, and is warded against even the strongest magics. However, a thief with absolutely fantastic lockpicking skills may be able to work around the magics and unlock it.~
+@1501=~~
 @2001=~The mechanism that operates this does not have a conventional lock and is warded against all spells.~
 @6001=~I caught you, thief! Unlike most soldiers in this city, I accept no bribes! You will be punished now!~
 @10001=~Alignment shifted towards Good and greatly towards Lawful until curse is removed~
 @10002=~Pick Pockets skill decreased significantly until curse is removed~
 @10003=~Illusion Dispelled~
+@19001=~Set Snare~
 @19002=~Set Snare
 Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the character's Set Traps skill and can only be triggered by enemies.
   Set Traps 0-49: Deals 1d8+5 missile damage.
@@ -37,6 +48,7 @@ Set a trap in the chosen location when no hostile creatures are in sight. Traps 
   Set Traps 150-199: Deals 2d8+5 missile damage, plus 3d8 poison damage.
   Set Traps 200-249: Deals 3d8+5 missile damage, plus 4d8 poison damage.
   Set Traps 250 and above: Deals 3d8+5 missile damage, plus 5d8 poison damage.~
+@19003=~Set Special Snare~
 @19004=~Set Special Snare
 Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the character's Set Traps skill and can only be triggered by enemies.
   Set Traps 0-49: Deals 2d8+5 missile damage, and slows the target for 3 rounds if a Save vs. Wands with a -1 penalty is failed.
@@ -52,6 +64,7 @@ With this ability, the character can set a deadly trap that can instantly kill a
   Set Traps 150-199: Deals 6d8+5 missile damage and instantly kills the target if it fails a Save vs. Death.
   Set Traps 200-249: Deals 8d8+5 missile damage and instantly kills the target if it fails a Save vs. Death with a -1 penalty.
   Set Traps 250 and above: Deals 10d8+5 missile damage and instantly kills the target if it fails a Save vs. Death with a -2 penalty.~
+@19007=~Set Exploding Trap~
 @19008=~Set Exploding Trap
 With this ability, the character can set a deadly trap that explodes when an enemy comes near. The trap grows more powerful with the character's Set Traps skill and can only be triggered by enemies.
   Set Traps 0-149: Deals 10d6 fire damage to all enemies within 15 feet (Save vs. Breath for half) and knocks them back.
@@ -60,12 +73,19 @@ With this ability, the character can set a deadly trap that explodes when an ene
   Set Traps 250 and above: Deals 16d6 fire damage to all enemies within 30 feet (Save vs. Breath at -3 for half) and knocks them back.
 
 Although the radius of the explosion grows as the trap gets more powerful, the proximity needed to trigger the trap does not change.~
+@19009=~Set Time Trap~
 @19010=~Set Time Trap
 With this ability, the character can set a trap that stops time when an enemy comes near. The trap grows more powerful with the character's Set Traps skill and can only be triggered by enemies.
   Set Traps 0-149: Stops time for 1.5 rounds.
   Set Traps 150-199: Stops time for 2 rounds.
   Set Traps 200-249: Stops time for 2.5 rounds.
   Set Traps 250 and above: Stops time for 3 rounds.~
+@19600=~Advantages:~
+@19601=~Advantages:
+- +20% bonus to Use Poison.~
+@19800=~Disadvantages:~
+@19801=~Disadvantages:
+- May not put points in the Use Poison skill.~
 @20001=~Ring of Backstabbing~
 @20002=~A ring is a small band of precious metal that is used as jewelry. Some rare rings have had enchantments placed upon them that confer various magical abilities. These rings are highly sought after, especially by those of the adventuring profession.
 
@@ -84,6 +104,8 @@ Equipped abilities:
 - Armor Class: 1
 
 Weight: 2~
+@21001=~Use Poison~
+@21002=~USE POISON: A Thief who is skilled at using poison knows how to poison a creature more effectively, injecting the poison in the spots where it will kill the creature the fastest. For every point a Thief has in this skill, all poison damage they deal is increased by 1%.~
 @28001=~Improved Knock~
 @28002=~Improved Knock
 (Alteration)
