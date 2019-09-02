@@ -1335,7 +1335,7 @@ BEGIN
 		["kit_include"] = %kit_include%,
 		["kit_exclude"] = %kit_exclude%,
 		["stat_exclude"] = %stat_exclude%
-	}~
+	},~
 END
 //To add the example skill shown in M__SKILL.LUA, you'd do this:
 /* LAF ADD_EXTENDED_SKILL
