@@ -2675,7 +2675,7 @@ COPY_EXISTING ~potn36.itm~ ~override~
 COPY_EXISTING ~potn39.itm~ ~override~
 	LPF ADD_ITEM_EFFECT INT_VAR type=3 opcode=removeeffectsbyresource target=1 timing=9 insert_point=0 STR_VAR resource=~potn39~ END
 
-BEGIN @8 REQUIRE_COMPONENT ~EEex.tp2~ ~0~ @101 DESIGNATED 600
+BEGIN @8 REQUIRE_COMPONENT ~EEex.tp2~ ~1~ @101 DESIGNATED 600
 
 COPY ~EpicThieving/UsePoisonSkill~ ~override~
 
